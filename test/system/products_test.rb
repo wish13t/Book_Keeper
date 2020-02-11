@@ -18,7 +18,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Description", with: @product.description
     fill_in "Image url", with: @product.image_url
     fill_in "Price", with: @product.price
-    fill_in "Tittle", with: @product.tittle
+    fill_in "title", with: @product.title
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -33,7 +33,7 @@ class ProductsTest < ApplicationSystemTestCase
     fill_in "Description", with: @product.description
     fill_in "Image url", with: @product.image_url
     fill_in "Price", with: @product.price
-    fill_in "Tittle", with: @product.tittle
+    fill_in "title", with: @product.title
     click_on "Update Product"
 
     assert_text "Product was successfully updated"

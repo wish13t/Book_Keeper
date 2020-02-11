@@ -1,0 +1,451 @@
+Searching 18441 files for "tittle"
+
+/Users/mac/rails_projects/bookkeeper/app/controllers/products_controller.rb:
+   70      # Only allow a list of trusted parameters through.
+   71      def product_params
+   72:       params.require(:product).permit(:tittle, :author, :description, :image_url, :price)
+   73      end
+   74  end
+
+/Users/mac/rails_projects/bookkeeper/app/controllers/store_controller.rb:
+    1  class StoreController < ApplicationController
+    2    def index
+    3:   	@products=Product.order(:tittle)
+    4    end
+    5  end
+
+/Users/mac/rails_projects/bookkeeper/app/views/carts/show.html.erb:
+    5  <ul>
+    6  <% @cart.line_items.each do |item| %>
+    7: <li><%= item.quantity %> &times; <%= item.product.tittle %></li>
+    8  <% end %>
+    9  </ul>
+
+/Users/mac/rails_projects/bookkeeper/app/views/products/_form.html.erb:
+   13  
+   14    <div class="field">
+   15:     <%= form.label :tittle %>
+   16:     <%= form.text_field :tittle %>
+   17    </div>
+   18  
+
+/Users/mac/rails_projects/bookkeeper/app/views/products/_product.json.jbuilder:
+    1: json.extract! product, :id, :tittle, :author, :description, :image_url, :price, :created_at, :updated_at
+    2  json.url product_url(product, format: :json)
+    3  
+
+/Users/mac/rails_projects/bookkeeper/app/views/products/index.html.erb:
+   19          </td>
+   20          <td class="description">
+   21:           <h1><%= product.tittle %></h1>
+   22            <p>
+   23              <%= truncate(strip_tags(product.description), length: 80) %>
+
+/Users/mac/rails_projects/bookkeeper/app/views/products/show.html.erb:
+    2  
+    3  <p>
+    4:   <strong>Tittle:</strong>
+    5:   <%= @product.tittle %>
+    6  </p>
+    7  
+
+/Users/mac/rails_projects/bookkeeper/app/views/store/index.html.erb:
+    7  <li>
+    8  <%= image_tag(product.image_url) %>
+    9: <h2><%= product.tittle %></h2>
+   10  <h4><%= product.author %></h4>
+   11  <p>
+
+/Users/mac/rails_projects/bookkeeper/db/development.sqlite3:
+    <binary>
+
+/Users/mac/rails_projects/bookkeeper/db/schema.rb:
+   29  
+   30    create_table "products", force: :cascade do |t|
+   31:     t.string "tittle"
+   32      t.string "author"
+   33      t.string "description"
+
+/Users/mac/rails_projects/bookkeeper/db/migrate/20200210074056_create_products.rb:
+    2    def change
+    3      create_table :products do |t|
+    4:       t.string :tittle
+    5        t.string :author
+    6        t.string :description
+
+/Users/mac/rails_projects/bookkeeper/log/development.log:
+    <binary>
+
+/Users/mac/rails_projects/bookkeeper/test/controllers/products_controller_test.rb:
+   18    test "should create product" do
+   19      assert_difference('Product.count') do
+   20:       post products_url, params: { product: { author: @product.author, description: @product.description, image_url: @product.image_url, price: @product.price, tittle: @product.tittle } }
+   21      end
+   22  
+   ..
+   35  
+   36    test "should update product" do
+   37:     patch product_url(@product), params: { product: { author: @product.author, description: @product.description, image_url: @product.image_url, price: @product.price, tittle: @product.tittle } }
+   38      assert_redirected_to product_url(@product)
+   39    end
+
+/Users/mac/rails_projects/bookkeeper/test/fixtures/products.yml:
+    2  
+    3  one:
+    4:   tittle: MyString
+    5    author: MyString
+    6    description: MyString
+    .
+    9  
+   10  two:
+   11:   tittle: MyString
+   12    author: MyString
+   13    description: MyString
+
+/Users/mac/rails_projects/bookkeeper/test/system/products_test.rb:
+   19      fill_in "Image url", with: @product.image_url
+   20      fill_in "Price", with: @product.price
+   21:     fill_in "Tittle", with: @product.tittle
+   22      click_on "Create Product"
+   23  
+   ..
+   34      fill_in "Image url", with: @product.image_url
+   35      fill_in "Price", with: @product.price
+   36:     fill_in "Tittle", with: @product.tittle
+   37      click_on "Update Product"
+   38  
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/-u/-UEgo7w3iATJt4eKrMufRNnh9vSbmIVZNm9S4B3WGPY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/0e/0EZq7lkSp0ud4qYxtH3jKN4ShweFWg-dF2hvmegSJBo.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/0E/0eNpSlHYyE9ZaDcRYJm2e_jPG75Q4Sk_BbKz_IQmNEo.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/2d/2D7QRlRJRFSrjZEcpqL9T6aqHBIedPykqnWDZmXyMGA.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/3Z/3zYxuFAMmxosC-3O1B8XqFe6HUg4gEB53iqGkmCC0y8.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/7F/7fjpIv5G1Va6OK0QonNVA-Fp9ZJAsp4HPFKt1RHDu1g.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/9B/9beFvPYr_HWRbCIi0FE-j4DaYnGKkXQcL8sZMspNLSA.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/9l/9L37WYsGjUr0Ua_n_VGfDrmKXDGUlRVWi5VMMVvIlms.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/_o/_OjfzNHBjWwPDoyx4bEvWgTzUi8MoWTNNgIYvXXmC3g.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/af/AfBtGuSorSGJg119cxS4kLLMGsC0Mgu67g5t7jg9pcA.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/aJ/Aj_6kRj2rIXqBr2EZZ9o_A0qkp-qEH6ZdJHhjNdoLZM.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/aM/AMQfYfL3nnfnaMqVhQdqa0bYMVgICc3EP511Rv390a0.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/AQ/aq-Sq8-W4Bk6qVmu7g6r840SVQFaD353bHCp8Jhnai4.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/aq/AQp6sx7_-0B_b-HbcJPP-QDM1fFGCMfnbscyzN8Fsa8.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Aq/aq-Sq8-W4Bk6qVmu7g6r840SVQFaD353bHCp8Jhnai4.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Aq/aqx7xLBxY4BRXliqgI9i-QD2w_AXiXsmfroI0fuMgjE.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/bM/BMsx7Hhbhvd6-q7zzfDJ9T4bpM-khd5NeWw_GGt8mhM.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/C4/c4bziAjZc6fuiTc1bIT73eOTtVcOhKYT3V17punSbgQ.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/C4/c4NUTDa5HDkO3-DESHpAYaobZTuVwGw_Srrh2bWWj2A.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/C6/c6vFbkZPlM3WDstfvKQINQYj8F-jIWqaZo59ls8Lyso.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/c9/C9S0Ac2ublSRyd7whMUmTk9MrO3YM3KdOclV1AnvVYA.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/CE/cEx_IE2K54i3axmu9wT8sYA8jPDVZEpxZrCPTh6Pvok.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/cG/cg9zGv6yPB6pCMGSBjslUBabFfnMuFzn9ns4vL8motw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/CG/Cg17_8cwnuW_6Xt_l9xbDLYvYlRx2H6-ipwznQ3200w.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Cg/cGflZbH54Cicj2e9zje_hoL9wz4rq8LvPOd7erkvgSQ.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/cg/cGflZbH54Cicj2e9zje_hoL9wz4rq8LvPOd7erkvgSQ.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/D5/d534Xl1uZ3knfnpCw1EMQ1X3hK3Xfzy8JB1KGRvD_lw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/dc/DCsWwzyXSZeSmCHDRbaMcz0XBH6O7mmb08xG-KHszYY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/dd/DDw4xQ2o0wDdHHxoiLTJYUBhkV9i9SK0GWNvNke8V7w.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/eJ/EjwVRKefEfwE8qs7UqzVhwjhAsNYRIqlaOpcUsq8Ko4.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/FK/Fk71Aey2f7PBFg9ZViuo_uBn7_MlyK63hViLYY3c9UY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/fk/Fk71Aey2f7PBFg9ZViuo_uBn7_MlyK63hViLYY3c9UY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Fk/FKnkANp-oFpQ2chYxUvIrcQF0QAPefoLM1Tl46heULA.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/fu/fUKhyB5vGdKI_KhP9pdJq7WTyB45bF1Zrsvjvr96Xi8.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/gb/GbIcN75WMWumldBp3vlXizMsGpTwmvC9qNIV_1pRBnI.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/GF/gf6GJAFA7lLhGCn1HK0YMqHffAg2s6dz3JmOs_180dw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/GM/GmpoFRxSQTEG-GqyDkQE-hj_ythUUIxxbugR5UbG6rI.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/GN/Gn7w0UOf8t7-yPEisTW5SN-rsQXaTFTDwcKSQ8CWPQY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/gn/GNw8p4VfDVQ3-wmJv-B-c-8TqN25BLA9piTFk7l828Q.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/HD/hDnnqrpgbOxGhKkJXhubcoLUkLHgCMwosb43jDAtH6A.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/hS/HS_YlxZN-kYJmUa2j3iBlxCx0j9N2UEFxydp5nJoVds.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Hv/HVmcYm6G0qYrf_tLGMqrWoXJnmY-nEpuY69XiYXuEQM.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/hW/HWU3gu87SJfdqatmOyQCjJHEyZIYYZ8g9DQSuVAd-6s.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/I-/i-i7nbfwkO9993AJ96vm937x_kOKzImIM-LthBFhoTw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/I7/i7fy8g_827H-W3U9HqRKTRsGJvltbM8OGwBas-4L7ag.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Ic/iCuih3dpfi_S_VLim4qkM5UWfAPzrwZB3PMMNvjZTrc.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/IO/iodT4F_nUJdhH-9PnDL7G0feXEiwS_TrML9gXGDvDPI.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/io/IoeYNTuQ1i3Yg5gLe5CBDo-Au-6ZtK1irlQ8gdEtt_M.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/iY/IY_CoAR2g30AKLX4hbAg09xWlnzCqlYERXhrIAxw-_4.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/JK/jKTNKUuWThYeuusLK9URZi_yVzgtE9C0yOUa6jRQWgw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/JL/jL5tI-Sl47wUkYrGHi8Jp562yBzFtG-RXOjbuj-lTFo.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/KA/kaTkASz6htDPh4bpmGIgB_XEs1Lb1jaAVgvAe4Uwsyk.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Kg/kgdRR1GD5fqC7CcquNh0RkryRf4hUuv2ovqfTDyGnWY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/kJ/KjgphntOigKB8jooWKM33Fg5q1FbNtNGq6VJ9LksX10.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/kJ/KjR3_qtWLYvRVSB9VIImp6abDNNUPdB42fusMk8BqCs.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/kl/Kl0ankjhHVW6pitDLrMliFgNIcJyxzuHY8byKRV7jLE.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/KR/kRtvt7NCJSe8xZ0K2McGVuBqHlepIyIazNJ60oqGm4c.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Ku/kuRYPUrz1gJv-dpQ0zexCJvuEZGG6Xgjjq1ZmVfOhTs.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/L_/l_ISXofqtDBbTqHT-7DpaaMi7xBDXpK4KgfAt5BP4hA.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/lM/Lm7EkS5MZwcUmN4B1Xm-pQRh2itILdXr1sx6Jy99fy0.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/mH/MH6sKLHHGQi-ZauVMYRS0n45wUQfJVc3Z9wq8Taol2o.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/mZ/Mzxdi0Ruq6qS3NWl1ZvKF07o9qVLnSeSJmhY-0rxBMY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/nB/NBQVrDt4aIgr65SJWZh3mTq0RBi836mbq49lnqb_-Kc.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/nV/NvLSGrdu1VUigsHukC0fC23MdOqVpLoDdmz3OEWfJDw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/NZ/nZDwdrcDSaPVoqVyXP86jWguxh0Q4DK12LujkN5dios.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/OI/oIsMDJomRxgimnNjABTC7adCqZLUxf0xEJ38YyWnfRk.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/oO/oo2iS-gazbdKk8nLZs494Wz35DtKXXSVNsiE77u6i2A.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/oO/oouCETLO5lYn_vhBgDt_fXjuf6YNXEMFG_ae45dsGr0.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/oo/oOqFCvBeLa-bxspPMb3DcwTA7kegYr1y9WrNbO3rfgw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/PW/PwJRBTVJffnQl6qiOs9Q56WFPKwffYLQjMLG7zE_fas.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/qd/Qd0Qiy9Aznt8hqoD5UGQFGxrSQ1s6XlPSWk-kA4Fdjg.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/qV/Qv1TefcQaq3qNUcKF2kDYRbeuo1VhnlE68ODo7gWUYY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/rQ/RQhd3M7Lk5mIKiI4wMBS47mDEZlWfMAb7S_KawCD3LU.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/So/sOxb8Ebf5G2p-iLFqbCIbNo4PXzW_B_i8sD8r9Rp49s.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/tC/tcdXMOvZ9HgcXQVXv4yJZpR8dpg256EM_bPv4XQwpPs.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/TM/tM7QZhHiLZuOGx39m-QOzBfkmcruOo0AyesUVuENF4o.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Tr/trgoVKkQQTZuYQPcbxnl4k1OSmG0uJfAqZqGCDqoaNo.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/TW/tWd87EqJfUsaYqnXxclcLA_oGwY2pRxcbGo5rNZE-uI.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/tZ/tzZaif9eNDnr5TF-nJhjOhp58_4RIAaZIH-aF8G4jgk.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Uc/ucYg7CbW189hHdGRt6PcPo-CLpoDWbwE42k4GHShKrw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/uE/UEgKMNjYgjS2JwKGI8tTrczZ9J-nhjr9xHtGOwjl7EE.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/un/Un3f8miFQinLy3i0wPsCY2MNCZA51QKrQ4LT_IJpHss.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Us/USjVUI550Ov9JHrj1CEk99DyO2SKL4nwzxAfTHP6aNk.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/US/UsaJQ0FqvdEZsdCQ-xi7lSBxUTsypYolhLrW_3lTGcU.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/US/UsUu0cOLUMp_9IBx2LIVOVFISyRKaEe13-n3Jc-4CCw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Ut/UTo_c30KAo7DKyOD5aK4xTlyD_tjUsfL1uygiDbC9EE.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/uU/uuJhBjGvI-JxYI7HOztuXIBZ0xDbaRU_VYbWwBajYUc.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/V8/v8H1K6MKEtXnfaGlOBi2r3TeIDG-_0b-WqRN3gyw26I.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Wp/WPk8_Aj9uh-E033gA_pdVA8CJh0R875GK1lKCy5iP9A.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/xe/xEYR-F0snomPgSKU9EMIpVCBJx40JU639AryVmHdNFw.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/xi/xIxgSGLYE_N1c_Fqoa-OSnMwyNLfgXvBG3Oi20kVZO4.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Xq/xqJr00tftaHMfaO5zLs2ivN7N96cKerxp15miSbKPzE.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/xq/xQdO6UO-mR91U7P8rTDgTRMP54s-dC709gldhczuP-4.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/xs/XsEsnxBTeSiS6yMFP9tj2ZOf45wY8PdTNsVq8Jh-CTg.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Yk/ykFo0Qf-d2qnC3LYJN1U_g9tpS7Sq5MnusJmHmIyMOY.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Zb/zbl91zSiJwlhM34Ie-DvpCNTrFMPiFvBq4F6aUl4Vag.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/zb/ZBTgxmYqXe55vJwJUJxelzFw-yqxdFN6QeeuE_Ke_SM.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/ZB/zbl91zSiJwlhM34Ie-DvpCNTrFMPiFvBq4F6aUl4Vag.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/ZD/ZdX5vEuhkl2zMHFDPGOXY5dWPxRzNAZ8uaBmJqn10fk.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Zq/ZQiPdvWPFLsI_l-5IeoSmjtQnhtWqObUDCMj7aSxLEI.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/zs/ZsjsYA1kQBI8mIIe7H92-Z2cNSPbKQR7TsZTk9hf6pg.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/zU/zuXQ2eu-jY_0_RS_QcOHnX4wdGxcZRzClrV3B-y5u_8.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/ZV/zVuvSm_c4Y8PWnBcGJwY38M8GPccAVQQI1kOGVaIKss.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/zV/zvIPZ2cT6KGvMzq94UvJW7S2QCoC6bbyvEva-jF9xek.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/ZX/zx3iEp9vAwnXI-OlcLfujCJza9XyStcYoIs9BsTwH1o.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/zx/ZxUsB-Re9Jyzg3j6VmbX1qkuNxooLZ2THbzBxNeDRvo.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/assets/sprockets/v4.0.0/Zx/zx3iEp9vAwnXI-OlcLfujCJza9XyStcYoIs9BsTwH1o.cache:
+    ERROR: Unable to open file
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/bootsnap-compile-cache/2c/479d2095c6f248:
+    <binary>
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/bootsnap-compile-cache/4a/adfb9f04cb4937:
+    <binary>
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/bootsnap-compile-cache/71/a069ee75f125b0:
+    <binary>
+
+/Users/mac/rails_projects/bookkeeper/tmp/cache/bootsnap-compile-cache/9c/3d3f3da337b24e:
+    <binary>
+
+218 matches across 19 files

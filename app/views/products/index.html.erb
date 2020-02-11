@@ -18,7 +18,7 @@
           <%= image_tag(product.image_url, class: 'list_image') %>
         </td>
         <td class="description">
-          <h1><%= product.tittle %></h1>
+          <h1><%= product.title %></h1>
           <p>
             <%= truncate(strip_tags(product.description), length: 80) %>
           </p>
@@ -27,7 +27,7 @@
           <h3><%= product.author%></h3>
         </td>
         <td class="price">
-          <h2>$<%= product.price%></h2>
+          <h2><%= number_to_currency(product.price)%></h2>
         </td>
         <td class="actions">
           <ul>
