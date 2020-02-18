@@ -1,0 +1,5 @@
+Dear <%= @order.name %>
+Thank you for your recent order from BookKeeper.
+You ordered the following items: 
+<%= render @order.line_items -%>
+We'll send you a seperate mail when your order is shipped.

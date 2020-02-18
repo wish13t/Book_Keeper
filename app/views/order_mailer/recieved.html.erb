@@ -1,0 +1,8 @@
+<h1> BookKeeper Online Store </h1>
+<h2> Order Recieved </h2>
+<p> This is to let you know that your recent order has been recieved by us. The details of the order are listed as follows: </p>
+<table>
+	<tr><th colspan="2">Quantity</th><th>Description</th></tr>
+	<%= render @order.line_items -%>
+</table>
+<p>We'll let you know when your order ships.</p>

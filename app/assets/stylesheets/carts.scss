@@ -21,26 +21,32 @@
   }
   tfoot {
     th, th.price {
-    font-weight: bold;
-    padding-top: 0.5em;
+      font-weight: bold;
+      padding-top: 0.5em;
+    }
+    th {
+      text-align: right;
+      border-top: solid thin;
+    }
+    td.price {
+      border-top: solid thin;
+    }
   }
-  th {
-    text-align: right;
-    border-top: solid thin;
+  .checkout {
+  float: right;
   }
-  td.price {
-    border-top: solid thin;
+  .empty {
+  float: left;
   }
-}
-input[type="submit"] {
+  input[type="submit"] {
     background-color: #881;
     border-radius: 0.354em;
     border: solid thin #441;
     color: white;
     font-size: 1em;
     padding: 0.354em 1em;
-}
-input[type="submit"]:hover {
-  background-color: #992;
-}
+  }
+  input[type="submit"]:hover {
+    background-color: #992;
+  }
 }

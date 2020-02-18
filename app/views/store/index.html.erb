@@ -1,3 +1,6 @@
+<% if notice %>
+		<aside id="notice"><%= notice %></aside>
+  <% end %>
 <h1>Your BookKeeper's Catalog</h1>
 <ul class="catalog">
 		<% @products.each do |product| %>
